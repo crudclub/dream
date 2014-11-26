@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.dream.domain.Student;
 
 /**
- * @author dsy
+ * @author dsy 20141126
  *
  */
 public class StudentTest {
