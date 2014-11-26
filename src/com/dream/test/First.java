@@ -1,10 +1,14 @@
 package com.dream.test;
 
+import org.apache.log4j.Logger;
+
 public class First {
 
+	private static Logger logger =  Logger.getLogger(First.class);
+	
 	public static void main(String [] args)
 	{
-		System.out.println("It is my dream!");
+		logger.info("It is my dream!");
 		System.out.println("My dream will do first!");
 		add();
 	}
