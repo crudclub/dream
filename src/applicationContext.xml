@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+   <bean id="personService" class="com.ynet.service.PersonService">
+   <property name="name" value="dsy"></property>
+   </bean>
+   
+     <bean id="chinese" class="com.ynet.service.Chinese">
+     <property name="axe" ref="stleAxe"></property>
+      </bean>
+      
+      <bean id="stoneAxe" class="com.ynet.service.StoneAxe">
+      </bean>
+        
+      <bean id="stleAxe" class="com.ynet.service.StleAxe">
+      </bean>
+      <!--配置监听器  -->
+      <bean class="com.ynet.notify.EmailNotifier"></bean>
+</beans>
