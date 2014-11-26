@@ -6,6 +6,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.dream.domain.Student;
 
+/**
+ * @author dsy
+ *
+ */
 public class StudentTest {
 
 	@Test
