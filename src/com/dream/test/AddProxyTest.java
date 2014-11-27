@@ -16,19 +16,19 @@ public class AddProxyTest {
 	{
 		AddComponent calc = new AddComponentImpl();
         
-        // Àà¼ÓÔØÆ÷
+        // ç±»åŠ è½½å™¨
         ClassLoader loader = AddProxyTest.class.getClassLoader();
-        // ĞèÒª´úÀíµÄ½Ó¿Ú
+        // éœ€è¦ä»£ç†çš„æ¥å£
         Class[] interfaces = {AddComponent.class};
-        // ·½·¨µ÷ÓÃ´¦ÀíÆ÷£¬±£´æÊµ¼ÊµÄAdderImplµÄÒıÓÃ
+        // æ–¹æ³•è°ƒç”¨å¤„ç†å™¨ï¼Œä¿å­˜å®é™…çš„AdderImplçš„å¼•ç”¨
         InvocationHandler h = new AddHandler(calc);
-        // Îªcalc¼ÓÉÏ´úÀí
+        // ä¸ºcalcåŠ ä¸Šä»£ç†
         calc = (AddComponent) Proxy.newProxyInstance(loader, interfaces, h);
          
-        /* Ê²Ã´£¿ÄãËµ»¹ÓĞ±ğµÄĞèÇó£¿ */
-        // ÁíÒ»¸ö´¦ÀíÆ÷£¬±£´æÇ°´¦ÀíÆ÷µÄÒıÓÃ
+        /* ä»€ä¹ˆï¼Ÿä½ è¯´è¿˜æœ‰åˆ«çš„éœ€æ±‚ï¼Ÿ */
+        // å¦ä¸€ä¸ªå¤„ç†å™¨ï¼Œä¿å­˜å‰å¤„ç†å™¨çš„å¼•ç”¨
         // InvocationHandler h2 = new XXOOHandler(h);
-        // ÔÙ¼Ó´úÀí
+        // å†åŠ ä»£ç†
         // calc = (AddComponent) Proxy.newProxyInstance(loader, interfaces, h2);
          
         int result = calc.substrut(4, 2);

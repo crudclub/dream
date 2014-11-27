@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 
- * aop À´¶Ô·ÃÎÊµÄ×é¼ş½øĞĞÔöÇ¿,Ìí¼ÓÁËÈÕÖ¾´¦Àí
+ * aop æ¥å¯¹è®¿é—®çš„ç»„ä»¶è¿›è¡Œå¢å¼º,æ·»åŠ äº†æ—¥å¿—å¤„ç†
  * 
  * @author dsy
  *
@@ -24,16 +24,16 @@ public class LogIntercept {
      
     @Before("recordLog()")
     public void before() {
-        this.printLog("ÒÑ¾­¼ÇÂ¼ÏÂ²Ù×÷ÈÕÖ¾@Before ·½·¨Ö´ĞĞÇ°");
+        this.printLog("å·²ç»è®°å½•ä¸‹æ“ä½œæ—¥å¿—@Before æ–¹æ³•æ‰§è¡Œå‰");
     }
      
     @Around("recordLog()")
-    //·½·¨ÓĞ·µ»ØÖµµÄ»°Õâ¸öµØ·½Ò»¶¨Òª·µ»ØÒ»¸öObject¶ÔÏó,²»È»»á±¨¿ÕÖ¸Õë´íÎó
+    //æ–¹æ³•æœ‰è¿”å›å€¼çš„è¯è¿™ä¸ªåœ°æ–¹ä¸€å®šè¦è¿”å›ä¸€ä¸ªObjectå¯¹è±¡,ä¸ç„¶ä¼šæŠ¥ç©ºæŒ‡é’ˆé”™è¯¯
     public Object around(ProceedingJoinPoint pjp) throws Throwable{
-        this.printLog("ÒÑ¾­¼ÇÂ¼ÏÂ²Ù×÷ÈÕÖ¾@Around ·½·¨Ö´ĞĞÇ°");
+        this.printLog("å·²ç»è®°å½•ä¸‹æ“ä½œæ—¥å¿—@Around æ–¹æ³•æ‰§è¡Œå‰");
       Object o =   pjp.proceed();
    
-     this.printLog("ÒÑ¾­¼ÇÂ¼ÏÂ²Ù×÷ÈÕÖ¾@Around ·½·¨Ö´ĞĞºó");
+     this.printLog("å·²ç»è®°å½•ä¸‹æ“ä½œæ—¥å¿—@Around æ–¹æ³•æ‰§è¡Œå");
      return o;
        
     }
@@ -41,7 +41,7 @@ public class LogIntercept {
      
     @After("recordLog()")
     public void after() {
-        this.printLog("ÒÑ¾­¼ÇÂ¼ÏÂ²Ù×÷ÈÕÖ¾@After ·½·¨Ö´ĞĞºó");
+        this.printLog("å·²ç»è®°å½•ä¸‹æ“ä½œæ—¥å¿—@After æ–¹æ³•æ‰§è¡Œå");
     }
      
      

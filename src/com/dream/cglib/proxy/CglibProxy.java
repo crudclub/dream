@@ -7,9 +7,9 @@ import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
 /**
- * JDKÊµÏÖ¶¯Ì¬´úÀíĞèÒªÊµÏÖÀàÍ¨¹ı½Ó¿Ú¶¨ÒåÒµÎñ·½·¨£¬¶ÔÓÚÃ»ÓĞ½Ó¿ÚµÄÀà£¬ÈçºÎÊµÏÖ¶¯Ì¬´úÀíÄØ£¬Õâ¾ÍĞèÒªCGLibÁË¡£
- * CGLib²ÉÓÃÁË·Ç³£µ×²ãµÄ×Ö½ÚÂë¼¼Êõ£¬ÆäÔ­ÀíÊÇÍ¨¹ı×Ö½ÚÂë¼¼ÊõÎªÒ»¸öÀà´´½¨×ÓÀà£¬²¢ÔÚ×ÓÀàÖĞ²ÉÓÃ·½·¨À¹½ØµÄ¼¼ÊõÀ¹½ØËùÓĞ¸¸Àà·½·¨µÄµ÷ÓÃ£¬Ë³ÊÆÖ¯ÈëºáÇĞÂß¼­¡£
- * JDK¶¯Ì¬´úÀíÓëCGLib¶¯Ì¬´úÀí¾ùÊÇÊµÏÖSpring AOPµÄ»ù´¡¡£
+ * JDKå®ç°åŠ¨æ€ä»£ç†éœ€è¦å®ç°ç±»é€šè¿‡æ¥å£å®šä¹‰ä¸šåŠ¡æ–¹æ³•ï¼Œå¯¹äºæ²¡æœ‰æ¥å£çš„ç±»ï¼Œå¦‚ä½•å®ç°åŠ¨æ€ä»£ç†å‘¢ï¼Œè¿™å°±éœ€è¦CGLibäº†ã€‚
+ * CGLibé‡‡ç”¨äº†éå¸¸åº•å±‚çš„å­—èŠ‚ç æŠ€æœ¯ï¼Œå…¶åŸç†æ˜¯é€šè¿‡å­—èŠ‚ç æŠ€æœ¯ä¸ºä¸€ä¸ªç±»åˆ›å»ºå­ç±»ï¼Œå¹¶åœ¨å­ç±»ä¸­é‡‡ç”¨æ–¹æ³•æ‹¦æˆªçš„æŠ€æœ¯æ‹¦æˆªæ‰€æœ‰çˆ¶ç±»æ–¹æ³•çš„è°ƒç”¨ï¼Œé¡ºåŠ¿ç»‡å…¥æ¨ªåˆ‡é€»è¾‘ã€‚
+ * JDKåŠ¨æ€ä»£ç†ä¸CGLibåŠ¨æ€ä»£ç†å‡æ˜¯å®ç°Spring AOPçš„åŸºç¡€ã€‚
  * 
  * @author dsy
  *
@@ -19,23 +19,23 @@ public class CglibProxy  implements MethodInterceptor{
 	
 	private Enhancer enhancer = new Enhancer();
 	 public Object getProxy(Class clazz){
-	  //ÉèÖÃĞèÒª´´½¨×ÓÀàµÄÀà
+	  //è®¾ç½®éœ€è¦åˆ›å»ºå­ç±»çš„ç±»
 	  enhancer.setSuperclass(clazz);
 	  enhancer.setCallback(this);
-	  //Í¨¹ı×Ö½ÚÂë¼¼Êõ¶¯Ì¬´´½¨×ÓÀàÊµÀı
+	  //é€šè¿‡å­—èŠ‚ç æŠ€æœ¯åŠ¨æ€åˆ›å»ºå­ç±»å®ä¾‹
 	  return enhancer.create();
 	 }
 	 
 	 
 	 
 	 
-	 //ÊµÏÖMethodInterceptor½Ó¿Ú·½·¨
+	 //å®ç°MethodInterceptoræ¥å£æ–¹æ³•
 	 public Object intercept(Object obj, Method method, Object[] args,
 	   MethodProxy proxy) throws Throwable {
-	  System.out.println("Ç°ÖÃ´úÀí");
-	  //Í¨¹ı´úÀíÀàµ÷ÓÃ¸¸ÀàÖĞµÄ·½·¨
+	  System.out.println("å‰ç½®ä»£ç†");
+	  //é€šè¿‡ä»£ç†ç±»è°ƒç”¨çˆ¶ç±»ä¸­çš„æ–¹æ³•
 	  Object result = proxy.invokeSuper(obj, args);
-	  System.out.println("ºóÖÃ´úÀí");
+	  System.out.println("åç½®ä»£ç†");
 	  return result;
 	 }
 

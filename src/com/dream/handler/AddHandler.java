@@ -6,13 +6,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * ÓÃÀ´Ñ§Ï°java ¶¯Ì¬´úÀí
+ * ç”¨æ¥å­¦ä¹ java åŠ¨æ€ä»£ç†
  * @author dsy
  *
  */
 public class AddHandler implements InvocationHandler  {
 	
-	 // ±»´úÀíµÄ¶ÔÏó
+	 // è¢«ä»£ç†çš„å¯¹è±¡
     private Object target;
     
     
@@ -23,25 +23,25 @@ public class AddHandler implements InvocationHandler  {
 	
 	
 	/**
-     * @param proxy ½ÓÏÂÀ´ProxyÒªÎªÄãÉú³ÉµÄ´úÀíÀàµÄÊµÀı£¬×¢Òâ£¬²¢²»ÊÇÎÒÃÇnew³öÀ´µÄAddComponeentImpl
-     * @param method µ÷ÓÃµÄ·½·¨µÄMethodÊµÀı¡£Èç¹ûµ÷ÓÃÁËadd()£¬ÄÇÃ´¾ÍÊÇadd()µÄMethodÊµÀı
-     * @param args µ÷ÓÃ·½·¨Ê±´«ÈëµÄ²ÎÊı¡£Èç¹ûµ÷ÓÃÁËadd()£¬ÄÇÃ´¾ÍÊÇ´«Èëadd()µÄ²ÎÊı
-     * @return Ê¹ÓÃ´úÀíºó½«×÷Îªµ÷ÓÃ·½·¨ºóµÄ·µ»ØÖµ¡£Èç¹ûµ÷ÓÃÁËadd()£¬ÄÇÃ´¾ÍÊÇµ÷ÓÃadd()ºóµÄ·µ»ØÖµ
+     * @param proxy æ¥ä¸‹æ¥Proxyè¦ä¸ºä½ ç”Ÿæˆçš„ä»£ç†ç±»çš„å®ä¾‹ï¼Œæ³¨æ„ï¼Œå¹¶ä¸æ˜¯æˆ‘ä»¬newå‡ºæ¥çš„AddComponeentImpl
+     * @param method è°ƒç”¨çš„æ–¹æ³•çš„Methodå®ä¾‹ã€‚å¦‚æœè°ƒç”¨äº†add()ï¼Œé‚£ä¹ˆå°±æ˜¯add()çš„Methodå®ä¾‹
+     * @param args è°ƒç”¨æ–¹æ³•æ—¶ä¼ å…¥çš„å‚æ•°ã€‚å¦‚æœè°ƒç”¨äº†add()ï¼Œé‚£ä¹ˆå°±æ˜¯ä¼ å…¥add()çš„å‚æ•°
+     * @return ä½¿ç”¨ä»£ç†åå°†ä½œä¸ºè°ƒç”¨æ–¹æ³•åçš„è¿”å›å€¼ã€‚å¦‚æœè°ƒç”¨äº†add()ï¼Œé‚£ä¹ˆå°±æ˜¯è°ƒç”¨add()åçš„è¿”å›å€¼
      */
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
-		System.out.println("µ÷ÓÃ·½·¨Ç°....");
-		// µ÷ÓÃ±»´úÀí¶ÔÏóµÄ·½·¨²¢µÃµ½·µ»ØÖµ
+		System.out.println("è°ƒç”¨æ–¹æ³•å‰....");
+		// è°ƒç”¨è¢«ä»£ç†å¯¹è±¡çš„æ–¹æ³•å¹¶å¾—åˆ°è¿”å›å€¼
         Object returnValue = method.invoke(target, args);
-        System.out.println("µÃµ½µÄ·µ»ØÖµÎª:"+returnValue);
+        System.out.println("å¾—åˆ°çš„è¿”å›å€¼ä¸º:"+returnValue);
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String nowStr = format.format(date);
         
-        // µ÷ÓÃ·½·¨Ç°ºó¶¼¿ÉÒÔ¼ÓÈëÒ»Ğ©ÆäËûµÄÂß¼­
-        System.out.println("proxy µ÷ÓÃ·½·¨ºó " + method.getName() + "() at " + nowStr);
-        // ¿ÉÒÔ·µ»ØÈÎºÎÏëÒª·µ»ØµÄÖµ
+        // è°ƒç”¨æ–¹æ³•å‰åéƒ½å¯ä»¥åŠ å…¥ä¸€äº›å…¶ä»–çš„é€»è¾‘
+        System.out.println("proxy è°ƒç”¨æ–¹æ³•å " + method.getName() + "() at " + nowStr);
+        // å¯ä»¥è¿”å›ä»»ä½•æƒ³è¦è¿”å›çš„å€¼
         return returnValue;
 	}
 	

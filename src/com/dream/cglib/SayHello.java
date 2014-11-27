@@ -1,7 +1,7 @@
 package com.dream.cglib;
 
 /**
- * ÓÃÀ´Ñ§Ï° CGlib ¶¯Ì¬´úÀí
+ * ç”¨æ¥å­¦ä¹  CGlib åŠ¨æ€ä»£ç†
  * @author dsy
  *
  */
