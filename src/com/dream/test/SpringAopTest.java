@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.dream.cglib.SayHello;
 import com.dream.component.AddComponent;
 
 public class SpringAopTest {
@@ -14,6 +15,10 @@ public class SpringAopTest {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		AddComponent addComponent = (AddComponent) ctx.getBean("addComponent");
 		int k = addComponent.add(4, 5);
+		
+		SayHello sayHello = (SayHello)ctx.getBean("sayHello");
+		sayHello.say();
+		sayHello.divide();
 	}
 	
 	

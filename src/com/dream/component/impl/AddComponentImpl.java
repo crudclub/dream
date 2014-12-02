@@ -11,7 +11,7 @@ public class AddComponentImpl implements AddComponent {
 	public int add(int a,int b) {
 			
 		     int j = a+b;
-			System.out.println("i+j�ĺ�Ϊ:"+j);
+			System.out.println("i+j的和为:"+j);
 	        return j;
 		
 	}
