@@ -7,6 +7,9 @@ import com.dream.component.AddComponent;
 @Component("addComponent")
 public class AddComponentImpl implements AddComponent {
 
+	/* (non-Javadoc)
+	 * @see com.dream.component.AddComponent#add(int, int)
+	 */
 	@Override
 	public int add(int a,int b) {
 			

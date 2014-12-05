@@ -1,8 +1,17 @@
 package com.dream.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="t_student")
 public class Student {
 
-	private String id;
+	@Id
+    @GeneratedValue
+	private Integer id;
 	
 	private String name;
 	
@@ -15,11 +24,12 @@ public class Student {
 	
 	private String age;
 
-	public String getId() {
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -62,10 +72,6 @@ public class Student {
 	public void setAge(String age) {
 		this.age = age;
 	}
-	
-	
-	
-	
 	
 	
 }
