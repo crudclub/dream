@@ -1,5 +1,7 @@
 package com.dream.service;
 
+import org.springframework.data.domain.Page;
+
 import com.dream.domain.Student;
 
 /**
@@ -35,6 +37,13 @@ public interface StudentService {
      * @param id
      */
     void deleteStudentById(Integer id);
+    
+    /**
+     * @param page
+     * @param size
+     * @return
+     */
+    Page<Student> findStudentPage(int page, int size);
 	
 	
 }

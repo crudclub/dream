@@ -1,9 +1,12 @@
 package com.dream.test;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -28,6 +31,19 @@ public class StudentCrudTest {
         studentService.saveStudent(student);
     }
     
+    @Test
+    public void testStudentPage(){
+    	int page = 0;
+    	int pageSize = 2;
+    	Page<Student> resPage = studentService.findStudentPage(page,pageSize);
+        List<Student> studentList =	resPage.getContent();
+        
+        for(Student student:studentList)
+        {
+        	System.out.println(student.getName());
+        }
+       System.out.println("totalElements is :"+resPage.getTotalElements()); 
+    }
     
     //根据id查找用户
     @Test

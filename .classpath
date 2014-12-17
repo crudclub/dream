@@ -43,5 +43,6 @@
 	<classpathentry kind="lib" path="lib/javax.batch-api-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.16.jar"/>
+	<classpathentry kind="lib" path="lib/antlr-2.7.7.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

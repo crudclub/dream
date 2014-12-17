@@ -1,6 +1,8 @@
 package com.dream.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +28,7 @@ public class StudentServiceImpl  implements StudentService{
 		  return studentRepository.findOne(id);
 	}
 
+	
 	@Override
 	@Transactional
 	public void updateStudent(Student student) {
@@ -37,5 +40,19 @@ public class StudentServiceImpl  implements StudentService{
 	public void deleteStudentById(Integer id) {
 		studentRepository.delete(id);
 	}
+	
+	
+	 /**
+	 * @param page
+	 * @param size
+	 * @return
+	 */
+	public  Page<Student> findStudentPage(int page, int size)
+	{
+		PageRequest pageRequest = new PageRequest(page, size);
+	    Page<Student> resPage =studentRepository.findAll(pageRequest);
+	    return resPage;
+	}
+	
 
 }

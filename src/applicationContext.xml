@@ -21,7 +21,7 @@
           http://www.springframework.org/schema/data/jpa
           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">  
           
-       <bean id="student" class="com.dream.domain.Student">
+      <bean id="student" class="com.dream.domain.Student">
       </bean>
      
      <!--启用component扫描  -->
