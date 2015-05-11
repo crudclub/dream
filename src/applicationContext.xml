@@ -7,6 +7,7 @@
     xmlns:p="http://www.springframework.org/schema/p"  
     xmlns:cache="http://www.springframework.org/schema/cache"  
     xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+    xmlns:task="http://www.springframework.org/schema/task"
     
     xsi:schemaLocation="http://www.springframework.org/schema/beans   
           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd   
@@ -19,10 +20,20 @@
           http://www.springframework.org/schema/cache 
           http://www.springframework.org/schema/cache/spring-cache-3.1.xsd
           http://www.springframework.org/schema/data/jpa
-          http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">  
+          http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+          http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">  
           
       <bean id="student" class="com.dream.domain.Student">
       </bean>
+     
+     
+          <!-- 配置Spring 定时任务--> 
+      <task:scheduled-tasks>   
+        <task:scheduled ref="taskJob" method="job1" cron="0/1 * * * * ?"/>   
+      </task:scheduled-tasks> 
+       
+      <!--  <bean id="taskJob" class="com.dream.service.TaskJob">
+       </bean> -->
      
      <!--启用component扫描  -->
      <context:component-scan base-package="com.dream"></context:component-scan>
@@ -30,6 +41,8 @@
      <!-- <bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean> -->
      <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
      
+      
+ 
      
      <context:annotation-config />  
         
@@ -51,6 +64,6 @@
         <!-- 配置Spring Data JPA扫描目录--> 
       <jpa:repositories base-package="com.dream.repository"/>
      
-     
+    
      
 </beans>
